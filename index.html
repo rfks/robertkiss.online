@@ -377,17 +377,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				form.addEventListener('submit', e => {
 				  e.preventDefault()
 				  btn.disabled = true
-				  btn.innerHTML = "Loading..."
+				  btn.value = "Loading..."
 			
 				  console.log(form)
 				  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then(response => { 
 						  btn.disabled = false
-				  btn.innerHTML = "Submit"
+				  btn.value = "Send Message"
 						alert('Success!', response) })
 					.catch(error => {
 								 btn.disabled = false
-				  btn.innerHTML = "Submit"
+				  btn.value = "Send Message"
 						alert('Error!', error.message)})
 				})
 			</script>
