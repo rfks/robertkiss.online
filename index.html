@@ -79,7 +79,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form id="form">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -103,8 +103,8 @@
 									<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
 									<!-- <li><a href="https://www.facebook.com/rktest.dev" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
 									<!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-									<li><a href="http://www.linkedin.com/in/rob3kiss" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/rfks" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a target="_blank" href="https://www.linkedin.com/in/rob3kiss" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a target="_blank" href="https://github.com/rfks" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</article>
 
@@ -370,4 +370,26 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>
+	<script>
+		const form = document.querySelector("#form")
+		const submitButton = document.querySelector("#submit")
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbwt5bN61h0YRe_bLXTKdh7JHTZriwZ8RYjVlITqLVcK1TGdjRCrSKam7fbXIOxDJYU/exec'
+	 
+		form.addEventListener('submit', e => {
+		  submitButton.disabled = true
+		  e.preventDefault()
+		  let requestBody = new FormData(form)
+		  fetch(scriptURL, { method: 'POST', body: requestBody})
+			.then(response => {
+			   alert('Success!', response)
+			   submitButton.disabled = false
+			  })
+			.catch(error => {
+			alert('Error!', error.message)
+			  submitButton.disabled = false
+	 
+			}
+			)
+		})
+	 </script>
+	</html>
