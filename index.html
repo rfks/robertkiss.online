@@ -420,7 +420,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				  btn.value = "Loading..."
 			
 				  console.log(form)
-				  fetch(scriptURL, { method: 'POST', body: new FormData(form), headers: { 'Content-Type': 'application/json' } })
+				  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then(response => {
 						  btn.disabled = false
 				  btn.value = "Send Message"
